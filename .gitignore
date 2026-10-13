@@ -1,0 +1,23 @@
+# Python 项目
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+.vscode/
+.idea/
+
+*.log
+
+dist/
+build/
+
+
+# Vue/Vite 项目
+node_modules/
+dist/
+.env
+.env.local
+.vscode/
+
