@@ -22,14 +22,15 @@ if "%BRANCH%"=="" (
 
 echo [当前分支] %BRANCH%
 
-:: 3. 添加所有修改到暂存区
-echo [1/3] 正在添加文件到暂存区...
+:: 3. 添加所有修改到暂存区 
+echo [1/3] 正在添加文件到暂存区... 
+
 git add .
 
 :: 4. 提示输入提交信息（如果没有输入，则使用默认信息）
 set /p msg="[2/3] 请输入 Commit 提交信息 (直接回车则使用默认信息): "
 if "%msg%"=="" (
-    set msg="Auto-commit: %date% %time%"
+    set "msg=Auto-commit: %date% %time%"
 )
 
 :: 执行提交

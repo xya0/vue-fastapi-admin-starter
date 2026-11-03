@@ -1,10 +1,9 @@
 <div align="center">
 
-#  youlai-fastapi
 
 **FastAPI 企业级权限管理系统后端（Python）**
 
-inpiere
+
 
 ## 项目简介
 
