@@ -10,7 +10,7 @@
 
 ## 技术栈
 
-| 架构     | 技术组件                                                     | 描述 / 作用                                                  |
+| 架构&nbsp;&nbsp;     | 技术组件                                                     | 描述 / 作用                                                  |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **后端** | **FastAPI** / **Pydantic v2** / **Uvicorn** / **SQLAlchemy 2.0** / **Python-Jose** | 现代高性能框架，集成数据验证、ASGI服务、ORM预留及JWT认证。   |
 | **前端** | **Vue 3** / **Vite 6** / **Vue Router 4** / **Pinia** / **Axios** / **TypeScript** | 基于组合式API与TS类型安全的现代前端流，含高效构建、路由、状态管理及网络请求。 |
@@ -96,7 +96,7 @@ npm run dev
 启动后端后访问：
 
 - Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+- ~~ReDoc: http://localhost:8000/redoc~~
 
 ## 环境变量
 
