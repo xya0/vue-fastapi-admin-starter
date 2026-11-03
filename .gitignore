@@ -1,6 +1,6 @@
 # Python 项目
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
 venv/
 .env

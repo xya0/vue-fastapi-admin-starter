@@ -31,7 +31,8 @@ defineProps({
 
 const langOptions = [
   { label: "中文", value: LanguageEnum.ZH_CN },
-  { label: "English", value: LanguageEnum.EN },
+  // [MOD](2026-10-21 XJa): 暂时不提供英文版本
+  // { label: "English", value: LanguageEnum.EN },
 ];
 
 const appStore = useAppStore();

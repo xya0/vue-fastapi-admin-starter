@@ -13,15 +13,10 @@
           </div>
         </div>
         <div class="dash-header__end">
-          <a
-            href="https://github.com/youlaitech/vue3-element-admin"
-            target="_blank"
-            title="GitHub"
-            class="quick-link"
-          >
+          <!-- <a href="https://github.com/" target="_blank" title="GitHub" class="quick-link">
             <span class="i-svg:github" />
             <span>GitHub</span>
-          </a>
+          </a> -->
         </div>
       </div>
     </section>
@@ -113,91 +108,9 @@
           <ECharts :options="visitTrendChartOptions" height="260px" />
         </div>
       </div>
-
-      <div class="card dash-chart__overview">
-        <div class="card__head">
-          <h3 class="card__title">待办概览</h3>
-          <el-tag type="primary" size="small" effect="plain">5 项待处理</el-tag>
-        </div>
-        <div class="card__body overview-card">
-          <div class="overview-summary">
-            <div v-for="item in todoSummaryItems" :key="item.label" class="overview-summary__item">
-              <span class="overview-summary__label">{{ item.label }}</span>
-              <strong class="overview-summary__value">{{ item.value }}</strong>
-            </div>
-          </div>
-          <div class="overview-bars">
-            <div
-              v-for="item in todoOverviewItems"
-              :key="item.label"
-              class="overview-bars__item"
-              :style="{ '--overview-percent': `${item.percent}%` }"
-            >
-              <div class="overview-bars__meta">
-                <span class="overview-bars__label">
-                  <span class="overview-bars__dot" />
-                  {{ item.label }}
-                </span>
-                <span class="overview-bars__value">{{ item.value }} 项</span>
-              </div>
-              <span class="overview-bars__track">
-                <span class="overview-bars__bar" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- <section class="dash-bottom">
-      <div class="card">
-        <div class="card__head">
-          <h3 class="card__title">待办事项</h3>
-          <el-tag size="small" round>5 项</el-tag>
-        </div>
-        <div class="card__body">
-          <div
-            v-for="todo in todoItems"
-            :key="todo.id"
-            class="todo-row"
-            :class="{ 'todo-row--done': todo.done }"
-          >
-            <el-icon
-              :size="16"
-              :class="todo.done ? 'todo-row__icon--done' : 'todo-row__icon--pending'"
-            >
-              <CircleCheck v-if="todo.done" />
-              <Clock v-else />
-            </el-icon>
-            <span class="todo-row__title">{{ todo.title }}</span>
-            <el-tag
-              :type="todo.done ? 'success' : todo.tag === '工单' ? 'warning' : 'info'"
-              size="small"
-              effect="plain"
-              class="todo-row__tag"
-            >
-              {{ todo.tag }}
-            </el-tag>
-            <span class="todo-row__time">{{ todo.time }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card__head">
-          <h3 class="card__title">系统动态</h3>
-        </div>
-        <div class="card__body card__body--scroll">
-          <div class="feed">
-            <div v-for="item in activities" :key="item.id" class="feed__item">
-              <span class="feed__dot" />
-              <span class="feed__text">{{ item.content }}</span>
-              <span class="feed__time">{{ item.time }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <section class="dash-bottom"></section>
   </div>
 </template>
 
@@ -243,23 +156,6 @@ const currentDateStr = computed(() => {
   const w = ["日", "一", "二", "三", "四", "五", "六"];
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 星期${w[d.getDay()]}`;
 });
-
-const todoItems = [
-  { id: 1, title: "审批：张三提交的请假申请", tag: "审批", time: "10分钟前", done: false },
-  { id: 2, title: "审核：新用户注册信息核实", tag: "审核", time: "30分钟前", done: false },
-  { id: 3, title: "发布：系统维护通知公告", tag: "通知", time: "1小时前", done: false },
-  { id: 4, title: "处理：工单 #TSK-20240509", tag: "工单", time: "2小时前", done: false },
-  { id: 5, title: "更新：用户角色权限配置", tag: "配置", time: "昨天 15:30", done: true },
-];
-
-const activities = [
-  { id: 1, content: "管理员 admin 登录系统", time: "3分钟前" },
-  { id: 2, content: "新增用户李四，角色为普通用户", time: "25分钟前" },
-  { id: 3, content: "系统配置项「登录策略」已更新", time: "1小时前" },
-  { id: 4, content: "数据库自动备份任务执行完成", time: "3小时前" },
-  { id: 5, content: "角色权限批量修改：运营组新增导出权限", time: "昨天 16:42" },
-  { id: 6, content: "SSL 证书已自动续期", time: "昨天 09:15" },
-];
 
 const todoOverviewItems = [
   { label: "审批", value: "2", percent: 40 },

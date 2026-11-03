@@ -58,6 +58,7 @@ dependencies = [
     "slowapi>=0.1.9,<1",
     # Template
     "jinja2>=3.1.0,<4",
+    "scalar-fastapi>=1.9.1",
 ]
 
 [project.optional-dependencies]

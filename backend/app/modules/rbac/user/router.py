@@ -26,7 +26,7 @@ from app.modules.rbac.user.service import UserService
 from app.modules.log.operation_log import operation_log
 from app.modules.log.constants import ActionTypeEnum, LogModuleEnum
 
-router = APIRouter(prefix="/api/v1/users", tags=["用户管理"])
+router = APIRouter(prefix="/users", tags=["用户管理"])
 
 
 @router.get("", summary="用户分页列表", dependencies=[Depends(require_perm("sys:user:list"))])

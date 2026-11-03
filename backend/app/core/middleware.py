@@ -2,7 +2,7 @@
 
 import time
 
-from fastapi import Request
+from fastapi import Request, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
@@ -39,6 +39,7 @@ def setup_cors(app):
 
 
 class RequestLogMiddleware(BaseHTTPMiddleware):
+    """记录每一个 HTTP 请求的路由、响应状态码以及处理该请求所耗费的时间（响应时间）"""
     async def dispatch(self, request: Request, call_next):
         start = time.time()
         response = await call_next(request)
@@ -81,3 +82,28 @@ class IpRateLimitMiddleware(BaseHTTPMiddleware):
         response.headers["X-RateLimit-Remaining"] = str(remaining)
         response.headers["X-RateLimit-Reset"] = str(int(time.time()) + window)
         return response
+
+
+def add_gzip_middleware(app: FastAPI):
+    """
+    添加gzip压缩中间件
+
+    :param app: FastAPI对象
+    :return:
+    """
+    from starlette.middleware.gzip import GZipMiddleware
+    app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=9)
+
+
+def register_middleware(app: FastAPI):
+    """
+    全局中间件处理
+    """
+    # 加载跨域中间件
+    setup_cors(app)
+    # 加载gzip压缩中间件
+    add_gzip_middleware(app)
+    # 其他中间件
+    # app.add_middleware(RequestLogMiddleware)
+    # app.add_middleware(IpRateLimitMiddleware)
+

@@ -2,7 +2,7 @@
 
 import traceback
 
-from fastapi import Request
+from fastapi import Request, FastAPI
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from loguru import logger
@@ -53,3 +53,10 @@ async def global_exception_handler(request: Request, exc: Exception) -> JSONResp
         status_code=500,
         content={"code": ResultCode.SYSTEM_ERROR.value, "msg": "系统执行异常", "data": None},
     )
+
+
+def register_exception_handlers(app: FastAPI) -> None:
+    app.add_exception_handler(BusinessException, business_exception_handler)
+    app.add_exception_handler(RequestValidationError, validation_exception_handler)
+    app.add_exception_handler(Exception, global_exception_handler)
+

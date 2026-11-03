@@ -17,15 +17,15 @@ import { setupSse } from "@/composables";
 
 const app = createApp(App);
 
-setupDirective(app);
-setupI18n(app);
-setupRouter(app);
-setupStore(app);
-setupFormCreate(app);
-
+setupDirective(app); // 1. 注册自定义指令（权限等）
+setupI18n(app); // 2. 注册国际化
+setupRouter(app); // 3. 注册路由
+setupStore(app); // 4. 注册 Pinia 状态管理
+setupFormCreate(app); // 5. 注册 FormCreate 动态表单
+// 全局注册 Element Plus 图标
 Object.entries(ElementPlusIcons).forEach(([name, comp]) => app.component(name, comp));
 
-setupPermissionGuard();
-setupSse();
+setupPermissionGuard(); // 6. 安装路由守卫（登录拦截 + 动态路由）
+setupSse(); // 7. 安装 SSE（服务端推送）事件监听
 
 app.mount("#app");

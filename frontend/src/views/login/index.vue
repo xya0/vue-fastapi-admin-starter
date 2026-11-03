@@ -17,32 +17,16 @@
 
         <div class="login-brand__hero">
           <div class="login-brand__main">
-            <!-- <el-tag class="login-brand__tag" type="primary" effect="plain" round>
-              <span class="login-brand__tag-dot" />
-              Enterprise Ready
-            </el-tag> -->
             <h1 class="login-brand__title">开箱即用的企业级中后台解决方案</h1>
           </div>
-          <div class="login-brand__features">
+          <!-- <div class="login-brand__features">
             <div class="login-brand__feature">
               <span class="login-brand__feature-mark">
                 <span class="login-brand__feature-icon i-svg:security" />
               </span>
               <span class="login-brand__feature-text">安全可靠</span>
             </div>
-            <div class="login-brand__feature">
-              <span class="login-brand__feature-mark">
-                <el-icon class="login-brand__feature-icon"><Clock /></el-icon>
-              </span>
-              <span class="login-brand__feature-text">高效稳定</span>
-            </div>
-            <div class="login-brand__feature">
-              <span class="login-brand__feature-mark">
-                <span class="login-brand__feature-icon i-svg:flexible" />
-              </span>
-              <span class="login-brand__feature-text">灵活扩展</span>
-            </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -89,7 +73,8 @@
                   </el-form-item>
                 </el-tooltip>
 
-                <el-form-item prop="captchaCode">
+                <!-- TODO: REMOVE_FEATURE (关闭验证码验证 - 2026/10/22) -->
+                <!-- <el-form-item prop="captchaCode">
                   <div class="captcha-row">
                     <el-input
                       v-model.trim="loginFormData.captchaCode"
@@ -109,7 +94,7 @@
                       <el-icon v-else :size="16"><Refresh /></el-icon>
                     </div>
                   </div>
-                </el-form-item>
+                </el-form-item> -->
 
                 <div class="login-options">
                   <el-checkbox v-model="loginFormData.rememberMe">记住我</el-checkbox>
@@ -141,9 +126,9 @@
                     {{ account.label }}
                   </button>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- <div class="login-alt">
+              <div class="login-alt">
                 <div class="login-alt__divider">其他登录方式</div>
                 <div class="login-alt__buttons">
                   <button class="login-alt__btn" @click="component = 'qrcode'">
@@ -207,13 +192,15 @@ const loginFormData = ref({
   rememberMe: AuthStorage.getRememberMe(),
 });
 
+/** 表单验证规则 */
 const loginRules = computed(() => ({
   username: [{ required: true, trigger: "blur", message: "请输入用户名" }],
   password: [
     { required: true, trigger: "blur", message: "请输入密码" },
     { min: 6, message: "密码不能少于6位", trigger: "blur" },
   ],
-  captchaCode: [{ required: true, trigger: "blur", message: "请输入验证码" }],
+  // TODO: REMOVE_FEATURE (关闭验证码验证 - 2026/10/22)
+  // captchaCode: [{ required: true, trigger: "blur", message: "请输入验证码" }],
 }));
 
 /** 工作流演示账号（与 workflow.sql 预置数据一致，点击填入登录表单） */
@@ -235,8 +222,11 @@ function getCaptcha() {
   codeLoading.value = true;
   AuthAPI.getCaptcha()
     .then((d) => {
-      loginFormData.value.captchaId = d.captchaId;
-      captchaBase64.value = d.captchaBase64;
+      /* TODO: REMOVE_FEATURE (验证码暂时注销 - 2026/10/22) */
+      // loginFormData.value.captchaId = d.captchaId;
+      // captchaBase64.value = d.captchaBase64;
+      loginFormData.value.captchaId = "";
+      loginFormData.value.captchaCode = "";
     })
     .finally(() => (codeLoading.value = false));
 }
@@ -314,7 +304,7 @@ $input-h: 44px;
 .login-brand {
   position: relative;
   display: flex;
-  flex: 0 0 65%;
+  flex: 0 0 60%;
   flex-direction: column;
   min-height: 100vh;
   padding: 28px 64px 48px;
@@ -339,7 +329,7 @@ $input-h: 44px;
     width: 42px;
     height: 42px;
     padding: 5px;
-    background: rgb(37 99 235 / 8%);
+    // background: rgb(37 99 235 / 8%);
     border: 0px solid rgb(37 99 235 / 18%);
     border-radius: 12px;
   }
@@ -496,7 +486,7 @@ $input-h: 44px;
   position: relative;
   z-index: 1;
   display: flex;
-  flex: 0 0 35%;
+  flex: 0 0 40%;
   flex-direction: column;
   align-items: center;
   padding: 0 0 32px;

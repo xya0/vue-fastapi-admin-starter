@@ -19,35 +19,7 @@ inpiere
 - 🌐 **多语言生态** — 与其它语言版本共享 API 规范与数据库结构
 - 🔌 **实时通信** — SSE 推送：在线用户数、字典同步、通知广播
 
-## 系统预览
 
-**PC 端**
-
-<table align="center">
-  <tr>
-    <td><img alt="PC预览1" width="400" src="./docs/images/preview/pc-01.png"></td>
-    <td><img alt="PC预览2" width="400" src="./docs/images/preview/pc-02.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="PC预览3" width="400" src="./docs/images/preview/pc-03.png"></td>
-    <td><img alt="PC预览4" width="400" src="./docs/images/preview/pc-04.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="PC预览5" width="400" src="./docs/images/preview/pc-05.png"></td>
-    <td><img alt="PC预览6" width="400" src="./docs/images/preview/pc-06.png"></td>
-  </tr>
-</table>
-
-**移动端**
-
-<table align="center">
-  <tr>
-    <td><img alt="APP预览1" width="200" src="./docs/images/preview/app-01.png"></td>
-    <td><img alt="APP预览2" width="200" src="./docs/images/preview/app-02.png"></td>
-    <td><img alt="APP预览3" width="200" src="./docs/images/preview/app-03.png"></td>
-    <td><img alt="APP预览4" width="200" src="./docs/images/preview/app-04.png"></td>
-  </tr>
-</table>
 
 ## 快速开始
 
@@ -135,8 +107,6 @@ youlai-fastapi/
 ├── pyproject.toml        # uv/Python 项目依赖定义
 └── uv.lock               # uv 锁定依赖版本（联网执行 uv lock 后生成）
 ```
-
-
 
 
 

@@ -13,7 +13,7 @@ from app.modules.auth.schemas import LoginForm, LoginResult, RefreshTokenForm
 from app.modules.auth.service import AuthService
 from app.core.rate_limit import check_rate_limit
 
-router = APIRouter(prefix="/api/v1/auth", tags=["认证管理"])
+router = APIRouter(prefix="/auth", tags=["认证管理"])
 
 
 @router.post("/login", summary="账号密码登录")

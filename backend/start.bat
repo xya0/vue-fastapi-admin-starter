@@ -8,7 +8,7 @@ echo [INFO] 当前工作目录: %CD%
 
 
 :: 定义项目根目录和虚拟环境路径
-set "BACKEND_DIR=%~dp0backend" & REM 将当前批处理脚本所在的目录下的backend 
+set "BACKEND_DIR=%~dp0" & REM 将当前批处理脚本所在的目录下的backend 
 set "VENV_PATH=%BACKEND_DIR%\.venv" & REM 虚拟环境文件夹名称 
 set "MAIN_SCRIPT=%BACKEND_DIR%\app\main.py" & REM 主程序名称 
 

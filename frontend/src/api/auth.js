@@ -8,8 +8,9 @@ const AuthAPI = {
     const payload = {
       username: data.username,
       password: data.password,
-      captchaId: data.captchaId,
-      captchaCode: data.captchaCode,
+      /* TODO: REMOVE_FEATURE (验证码暂时注销 - 2026/10/22) */
+      // captchaId: data.captchaId,
+      // captchaCode: data.captchaCode,
     };
 
     // tenantId is optional — include only when provided (multi-tenant feature)

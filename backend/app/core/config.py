@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     """配置项均可用 .env 或环境变量覆盖。"""
 
     model_config = SettingsConfigDict(
-        env_file=os.getenv("ENV_FILE", ".env.test"),
+        env_file=os.getenv("ENV_FILE", ".env"),
         env_file_encoding="utf-8",
         env_nested_delimiter="__",
         case_sensitive=False,

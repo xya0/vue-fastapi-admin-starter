@@ -3,7 +3,7 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetUno,
+  presetWind3 as presetUno, // 使用Wind3预设, 旧写法 presetUno 已被弃用
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";

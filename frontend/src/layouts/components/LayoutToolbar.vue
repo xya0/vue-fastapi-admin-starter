@@ -1,9 +1,9 @@
 <template>
   <div :class="['layout-toolbar', toolbarToneClass]">
     <template v-if="isDesktop">
-      <div class="layout-toolbar__item layout-toolbar__item--search">
+      <!-- <div class="layout-toolbar__item layout-toolbar__item--search">
         <CommandPalette />
-      </div>
+      </div> -->
 
       <div class="layout-toolbar__item">
         <Fullscreen />
