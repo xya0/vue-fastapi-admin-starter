@@ -23,7 +23,7 @@ from app.modules.rbac.user.models import SysUser
 from app.modules.log.operation_log import operation_log
 from app.modules.log.constants import ActionTypeEnum, LogModuleEnum
 
-router = APIRouter(prefix="/api/v1/notices", tags=["通知公告"])
+router = APIRouter(prefix="/notices", tags=["通知公告"])
 
 
 class NoticeQuery(BaseModel):

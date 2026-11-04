@@ -20,7 +20,7 @@ from app.core.exceptions import BusinessException
 from app.core.redis import get_redis
 from app.common.response import Result, ResultCode
 
-router = APIRouter(prefix="/api/v1/auth/qr-code", tags=["扫码登录"])
+router = APIRouter(prefix="/auth/qr-code", tags=["扫码登录"])
 
 # 扫码登录状态
 STATUS_WAITING = "WAITING"

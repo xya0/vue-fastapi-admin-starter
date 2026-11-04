@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql+asyncpg://youlai:Youlai%402026@www.youlai.tech:15432/youlai_admin"
 
     # ── Redis ──
-    REDIS_URL: str = "redis://:123456@www.youlai.tech:6379/0"
+    REDIS_URL: str = "redis://localhost:6379/0"
 
     # ── 认证 ──
     SESSION_TYPE: str = "jwt"

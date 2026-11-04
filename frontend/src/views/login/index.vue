@@ -185,8 +185,8 @@ const UserIcon = markRaw(User);
 const LockIcon = markRaw(Lock);
 
 const loginFormData = ref({
-  username: "youlai",
-  password: "123456",
+  username: "",
+  password: "",
   captchaId: "",
   captchaCode: "",
   rememberMe: AuthStorage.getRememberMe(),

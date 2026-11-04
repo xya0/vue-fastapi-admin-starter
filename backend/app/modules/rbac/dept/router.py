@@ -12,7 +12,7 @@ from app.modules.rbac.dept.service import DeptService
 from app.modules.log.operation_log import operation_log
 from app.modules.log.constants import ActionTypeEnum, LogModuleEnum
 
-router = APIRouter(prefix="/api/v1/depts", tags=["部门管理"])
+router = APIRouter(prefix="/depts", tags=["部门管理"])
 
 
 @router.get("", summary="部门树", dependencies=[Depends(require_perm("sys:dept:list"))])

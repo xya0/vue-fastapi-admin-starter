@@ -12,7 +12,7 @@ from app.common.response import Result
 from app.modules.tool.codegen.schemas import GenConfigForm, PreviewQuery, TableQuery
 from app.modules.tool.codegen.service import CodegenService
 
-router = APIRouter(prefix="/api/v1/codegen", tags=["代码生成"])
+router = APIRouter(prefix="/codegen", tags=["代码生成"])
 
 
 @router.get("/table", summary="获取数据表分页列表")

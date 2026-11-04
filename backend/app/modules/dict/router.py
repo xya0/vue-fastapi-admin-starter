@@ -18,7 +18,7 @@ from app.modules.dict.schemas import (
 )
 from app.modules.dict.service import DictService
 
-router = APIRouter(prefix="/api/v1/dicts", tags=["字典管理"])
+router = APIRouter(prefix="/dicts", tags=["字典管理"])
 
 
 @router.get("", summary="字典分页列表", dependencies=[Depends(require_perm("sys:dict:list"))])

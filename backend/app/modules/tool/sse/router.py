@@ -7,7 +7,7 @@ from app.modules.auth.schemas import SysUserDetails
 from app.modules.tool.sse.manager import get_online_count, sse_connect
 from app.common.response import Result
 
-router = APIRouter(prefix="/api/v1/sse", tags=["SSE推送"])
+router = APIRouter(prefix="/sse", tags=["SSE推送"])
 
 
 @router.get("/connect", summary="SSE 长连接")

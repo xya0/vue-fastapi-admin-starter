@@ -1,23 +1,29 @@
+# ==========================================
+# 根目录 .gitignore（负责全局与开发环境）
+# 主要用来忽略操作系统生成的临时文件、开发工具（IDE）的配置文件以及通用的日志。
+# ==========================================
+
+# 操作系统临时文件
+.DS_Store
+Thumbs.db
+
+# 编辑器与 IDE 配置文件
+.vscode/
+.idea/
+
+# 通用日志
+*.log
+
+# 打包构建输出
+build/
+
 # Python 项目
 __pycache__/
 *.py[cod]
 .venv/
 venv/
-.env
 
-.vscode/
-.idea/
-
-*.log
-
-dist/
-build/
-
-
-# Vue/Vite 项目
+# Vue+Vite 项目
 node_modules/
 dist/
-.env
-.env.local
-.vscode/
 

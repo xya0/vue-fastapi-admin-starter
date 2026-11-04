@@ -1,28 +1,28 @@
+# Python 字节码与缓存
 __pycache__/
 *.py[cod]
 *.egg-info/
 dist/
 build/
+
+# 虚拟环境 (Virtual Environments)
 .venv/
 .uv/
 .env
 *.egg
-!.env.example
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-*.log
 
-# Coverage
+# 敏感的本地配置文件（数据库密码、密钥等）
+!.env.example
+
+# 测试与覆盖率
 .coverage
 htmlcov/
 coverage.xml
 
-# 文件上传本地测试产物（file.type=local 时写入）
-uploads/
-
-# Alembic
-app/alembic/versions/*.pyc
+# 缓存
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
 
 # SQLite test database
-data/*.db
+# data/*.db

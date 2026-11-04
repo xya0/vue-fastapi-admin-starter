@@ -8,7 +8,7 @@ from app.core.database import get_db
 from app.common.response import Result
 from app.modules.tool.wxma.service import WxMaAuthService
 
-router = APIRouter(prefix="/api/v1/wxma/auth", tags=["微信小程序认证"])
+router = APIRouter(prefix="/wxma/auth", tags=["微信小程序认证"])
 
 
 class WxMaPhoneLoginForm(BaseModel):

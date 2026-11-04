@@ -15,7 +15,7 @@ from app.core.dependencies import require_perm
 from app.common.response import Result
 from app.modules.log.models import SysLog
 
-router = APIRouter(prefix="/api/v1/logs", tags=["日志管理"])
+router = APIRouter(prefix="/logs", tags=["日志管理"])
 
 
 class LogQuery(BaseModel):

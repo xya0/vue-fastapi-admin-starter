@@ -14,7 +14,7 @@ from app.modules.rbac.role.schemas import (
 )
 from app.modules.rbac.role.service import RoleService
 
-router = APIRouter(prefix="/api/v1/roles", tags=["角色管理"])
+router = APIRouter(prefix="/roles", tags=["角色管理"])
 
 
 @router.get("", summary="角色分页列表", dependencies=[Depends(require_perm("sys:role:list"))])

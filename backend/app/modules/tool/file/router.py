@@ -17,7 +17,7 @@ from app.modules.auth.schemas import SysUserDetails
 from app.core.exceptions import BusinessException
 from app.common.response import Result, ResultCode
 
-router = APIRouter(prefix="/api/v1/files", tags=["文件管理"])
+router = APIRouter(prefix="/files", tags=["文件管理"])
 
 # 文件大小限制
 MAX_FILE_SIZE = settings.FILE_MAX_SIZE_MB * 1024 * 1024  # bytes

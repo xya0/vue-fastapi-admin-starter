@@ -12,7 +12,7 @@ from app.modules.rbac.menu.service import MenuService
 from app.modules.log.operation_log import operation_log
 from app.modules.log.constants import ActionTypeEnum, LogModuleEnum
 
-router = APIRouter(prefix="/api/v1/menus", tags=["菜单管理"])
+router = APIRouter(prefix="/menus", tags=["菜单管理"])
 
 
 @router.get("", summary="菜单树", dependencies=[Depends(require_perm("sys:menu:list"))])

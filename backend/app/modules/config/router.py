@@ -19,7 +19,7 @@ from app.modules.config.models import SysConfig
 from app.modules.log.constants import ActionTypeEnum, LogModuleEnum
 from app.modules.log.operation_log import operation_log
 
-router = APIRouter(prefix="/api/v1/configs", tags=["系统配置"])
+router = APIRouter(prefix="/configs", tags=["系统配置"])
 
 
 class ConfigQuery(BaseModel):

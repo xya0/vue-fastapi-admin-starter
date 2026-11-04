@@ -24,7 +24,7 @@
 
 **环境要求**：Python 3.11+ · uv · PostgreSQL 16+ · Redis 7.x（生产）
 
-> 测试/本地开发可直接使用 SQLite，不需要安装 PostgreSQL。SQLite 使用 `sqlite+aiosqlite`，初始化脚本位于 `sql/sqlite/youlai-admin.sql`。
+> 测试/本地开发可直接使用 SQLite，不需要安装 PostgreSQL。SQLite 使用 `sqlite+aiosqlite`，初始化脚本位于 `sql/sqlite/admin.sql`。
 
 1. 克隆项目：
    ```bash
@@ -56,11 +56,11 @@
    uv run fastapi dev app/main.py
    ```
 
-   SQLite 初始化脚本 `sql/sqlite/youlai-admin.sql` 已包含建表、索引和完整测试种子数据。
+   SQLite 初始化脚本 `sql/sqlite/admin.sql` 已包含建表、索引和完整测试种子数据。
 
 4. 生产环境使用 PostgreSQL：
    ```bash
-   psql -d youlai_admin -f sql/postgresql/youlai-admin.sql
+   psql -d youlai_admin -f sql/postgresql/admin.sql
    ```
 
 5. 启动服务：
@@ -82,7 +82,6 @@
 > 按业务域组织，每个域自包含 `router/schemas/models/service`，参考 [zhanymkanov/fastapi-best-practices](https://github.com/zhanymkanov/fastapi-best-practices)。
 
 ```text
-youlai-fastapi/
 ├── app/
 │   ├── api/              # API 聚合与版本管理
 │   ├── core/             # 配置、数据库、安全、中间件、Redis
