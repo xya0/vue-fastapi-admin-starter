@@ -4,25 +4,7 @@
 
 **Vue3 + Vite + JavaScript 企业级后台管理前端**
 
-[![Vue](https://img.shields.io/badge/Vue-3.5.30-brightgreen.svg)](https://vuejs.org/)
-[![Element Plus](https://img.shields.io/badge/Element%20Plus-2.13.5-blue.svg)](https://element-plus.org/)
-[![Gitee Star](https://gitee.com/youlaiorg/vue3-element-admin-js/badge/star.svg)](https://gitee.com/youlaiorg/vue3-element-admin-js/stargazers)
-[![GitHub Star](https://img.shields.io/github/stars/youlaitech/vue3-element-admin-js?style=social)](https://github.com/youlaitech/vue3-element-admin-js)
-[![GitCode Star](https://gitcode.com/youlai/vue3-element-admin-js/star/badge.svg)](https://gitcode.com/youlai/vue3-element-admin-js/stargazers)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-</div>
-
-<p align="center"><img src="./public/images/rainbow.png" alt="rainbow"></p>
-
-<div align="center">
-
-[![在线预览](https://img.shields.io/badge/在线预览-2D8CF0?style=for-the-badge&logo=google-chrome&logoColor=white)](https://vue.youlai.tech)
-[![移动端预览](https://img.shields.io/badge/移动端预览-19BE6B?style=for-the-badge&logo=android&logoColor=white)](https://app.youlai.tech)
-[![文档](https://img.shields.io/badge/文档-8B5CF6?style=for-the-badge&logo=gitbook&logoColor=white)](https://www.youlai.tech/vue3-element-admin)
-[![官网](https://img.shields.io/badge/官网-FF9F1C?style=for-the-badge&logo=safari&logoColor=white)](https://www.youlai.tech/docs/web/)
-
-</div>
 
 ## 项目简介
 
@@ -183,27 +165,3 @@ pnpm run build
 
 ![](https://foruda.gitee.com/images/1687755823165218215/c1705416_716974.png)
 
-## 技术合作
-
-本项目采用 [MIT](LICENSE) 协议开源，可免费商用。欢迎在 [Issue](https://gitee.com/youlaiorg/vue3-element-admin-js/issues) 提交问题或反馈，也欢迎提交 [Pull Request](https://gitee.com/youlaiorg/vue3-element-admin-js/pulls) 共建。如需技术支持、商务合作、二次开发或项目定制，可联系作者微信（见下方二维码）。
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="./public/images/qrcode/wechat-official.jpg" height="180" alt="公众号「有来技术」"><br>
-      <sub>公众号「有来技术」</sub>
-    </td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td align="center">
-      <img src="./public/images/qrcode/wechat-mp.jpg" height="180" alt="小程序「有来技术」"><br>
-      <sub>小程序「有来技术」</sub>
-    </td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td align="center">
-      <img src="./public/images/qrcode/wechat-personal.png" height="180" alt="添加作者微信"><br>
-      <sub>添加作者微信</sub>
-    </td>
-  </tr>
-</table>
-
-<p align="center"><em>技术交流 · 问题反馈 · 商务合作</em></p>
