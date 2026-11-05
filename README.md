@@ -13,25 +13,29 @@
 <table>
   <thead>
     <tr>
-      <th style="white-space: nowrap;">架构</th>
+      <th style="white-space: nowrap;">架&nbsp;构</th>
       <th style="white-space: nowrap;">技术组件</th>
       <th style="white-space: nowrap;">描述 / 作用</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>后端</strong></td>
+      <td><strong>后&nbsp;端</strong></td>
       <td><strong>FastAPI</strong> / <strong>Pydantic v2</strong> / <strong>Uvicorn</strong> / <strong>SQLAlchemy 2.0</strong> / <strong>Python-Jose</strong></td>
       <td>现代高性能框架，集成数据验证、ASGI服务、ORM预留及JWT认证。</td>
     </tr>
     <tr>
-      <td><strong>前端</strong></td>
+      <td><strong>前&nbsp;端</strong></td>
       <td><strong>Vue 3</strong> / <strong>Vite 6</strong> / <strong>Vue Router 4</strong> / <strong>Pinia</strong> / <strong>Axios</strong> / <strong>TypeScript</strong></td>
       <td>基于组合式API与TS类型安全的现代前端流，含高效构建、路由、状态管理及网络请求。</td>
     </tr>
   </tbody>
 </table>
 
+| 架构     | 技术组件                                                     | 描述 / 作用                                                  |
+| :------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| **后端** | **FastAPI** / **Pydantic v2** / **Uvicorn** / **SQLAlchemy 2.0** / **Python-Jose** | 现代高性能框架，集成数据验证、ASGI服务、ORM预留及JWT认证。   |
+| **前端** | **Vue 3** / **Vite 6** / **Vue Router 4** / **Pinia** / **Axios** / **TypeScript** | 基于组合式API与TS类型安全的现代前端流，含高效构建、路由、状态管理及网络请求。 |
 
 ## 项目结构
 
