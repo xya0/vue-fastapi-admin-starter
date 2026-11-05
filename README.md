@@ -69,6 +69,16 @@ vue-python-framework/
 
 ### 后端启动
 
+- UV
+
+```
+uv sync
+copy .env.example .env
+uv run uvicorn app.main:app --reload
+```
+
+- pip + venv
+
 ```bash
 # 进入后端目录
 cd backend
@@ -86,7 +96,7 @@ cp .env.example .env
 
 # 启动开发服务器
 python main.py
-# 或
+# 或者
 uvicorn core.app:app --reload
 ```
 
@@ -97,12 +107,13 @@ uvicorn core.app:app --reload
 ```bash
 # 进入前端目录
 cd frontend
-
 # 安装依赖
 npm install
-
 # 启动开发服务器
 npm run dev
+
+# --- 或者 ---
+npx vite --port=4000
 ```
 
 前端运行在 http://localhost:5173
@@ -158,8 +169,6 @@ npm run build
 pip install gunicorn
 gunicorn core.app:app -w 4 -k uvicorn.workers.UvicornWorker
 ```
-
-
 
 
 

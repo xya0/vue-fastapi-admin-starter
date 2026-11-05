@@ -1,7 +1,8 @@
 {
   "route": {
-    "dashboard": "首页",
-    "document": "项目文档"
+    "dashboard": "仪表盘",
+    "document": "项目文档",
+    "home": "首页"
   },
   "login": {
     "themeToggle": "主题切换",

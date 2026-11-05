@@ -4,8 +4,6 @@ from fastapi import FastAPI
 import redis.asyncio as aioredis
 from app.core.config import settings
 
-# import logging
-# logger = logging.getLogger("uvicorn")
 REDIS_URL = settings.REDIS_URL
 
 
@@ -20,7 +18,7 @@ async def init_redis(app: FastAPI):
         logger.info("✅ Redis 连接成功，配置校验通过！")
 
         # 挂载到 app.state
-        # app.state.redis = redis_client
+        app.state.redis = redis_client  # type: ignore
     except (aioredis.ConnectionError, aioredis.TimeoutError) as e:
         # logger.error(f"❌ Redis 连接失败: {e}")
         logger.error(f"❌ Redis 连接失败: {type(e).__name__}")
@@ -28,10 +26,11 @@ async def init_redis(app: FastAPI):
         # raise RuntimeError("项目启动失败：无法连接到 Redis 服务。")
 
 
+# noinspection PyUnresolvedReferences
 async def close_redis(app: FastAPI):
     """关闭 Redis 连接"""
     if hasattr(app.state, "redis"):
-        await app.state.redis.close()
+        await app.state.redis.close()  # noqa
         logger.info("🔒 Redis 连接已成功关闭")
 
 

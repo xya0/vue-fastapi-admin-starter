@@ -12,7 +12,7 @@
         </el-form-item>
 
         <el-form-item label="操作类型" prop="type">
-          <el-select v-model="params.type" placeholder="全部" clearable>
+          <el-select v-model="params.type" placeholder="全部" clearable style="width: 100px">
             <el-option :value="LogActionType.INSERT" label="新增" />
             <el-option :value="LogActionType.UPDATE" label="修改" />
             <el-option :value="LogActionType.DELETE" label="删除" />
@@ -139,12 +139,16 @@
             {{ detailForm.method.toUpperCase() }}
           </el-tag>
         </el-descriptions-item>
-        <el-descriptions-item label="请求路径" :span="2">{{ detailForm.path }}</el-descriptions-item>
+        <el-descriptions-item label="请求路径" :span="2">
+          {{ detailForm.path }}
+        </el-descriptions-item>
         <el-descriptions-item label="操作 IP">{{ detailForm.ip }}</el-descriptions-item>
         <el-descriptions-item label="操作耗时">
           {{ detailForm.duration !== undefined ? detailForm.duration + " ms" : "-" }}
         </el-descriptions-item>
-        <el-descriptions-item label="操作时间" :span="2">{{ detailForm.createTime }}</el-descriptions-item>
+        <el-descriptions-item label="操作时间" :span="2">
+          {{ detailForm.createTime }}
+        </el-descriptions-item>
         <el-descriptions-item label="请求参数" :span="2">
           <div class="json-pre">{{ formatJson(detailForm.requestParams) }}</div>
         </el-descriptions-item>

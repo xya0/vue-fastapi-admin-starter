@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img alt="logo" width="40" valign="middle" src="./src/assets/images/logo.png"> vue3-element-admin-js
+# <img alt="logo" width="50" valign="middle" src="./src/assets/images/logo.png"> vue-element-admin-js
 
 **Vue3 + Vite + JavaScript 企业级后台管理前端**
 
@@ -21,33 +21,7 @@
 
 ## 系统预览
 
-**PC 端**
-
-<table align="center">
-  <tr>
-    <td><img alt="PC预览1" width="400" src="./public/images/preview/pc-01.png"></td>
-    <td><img alt="PC预览2" width="400" src="./public/images/preview/pc-02.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="PC预览3" width="400" src="./public/images/preview/pc-03.png"></td>
-    <td><img alt="PC预览4" width="400" src="./public/images/preview/pc-04.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="PC预览5" width="400" src="./public/images/preview/pc-05.png"></td>
-    <td><img alt="PC预览6" width="400" src="./public/images/preview/pc-06.png"></td>
-  </tr>
-</table>
-
-**移动端**
-
-<table align="center">
-  <tr>
-    <td><img alt="APP预览1" width="200" src="./public/images/preview/app-01.png"></td>
-    <td><img alt="APP预览2" width="200" src="./public/images/preview/app-02.png"></td>
-    <td><img alt="APP预览3" width="200" src="./public/images/preview/app-03.png"></td>
-    <td><img alt="APP预览4" width="200" src="./public/images/preview/app-04.png"></td>
-  </tr>
-</table>
+/
 
 ## 快速开始
 
@@ -158,10 +132,4 @@ pnpm run build
 **本地 Mock**：将 `.env.development` 的 `VITE_MOCK_DEV_SERVER` 设为 `true` 即启用本地 Mock 接口，无需后端即可独立开发。
 
 **对接后端**：九种后端默认端口均为 `8000`，将 `.env.development` 的 `VITE_APP_API_URL` 改为 `http://localhost:8000` 并启动对应后端即可（主推 Java 后端 [youlai-boot](https://gitee.com/youlaiorg/youlai-boot.git)，其余见各自仓库 README）。
-
-## 提交规范
-
-执行 `pnpm run commit` 唤起 git commit 交互，根据提示完成信息的输入和选择。
-
-![](https://foruda.gitee.com/images/1687755823165218215/c1705416_716974.png)
 
