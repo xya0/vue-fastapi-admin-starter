@@ -133,3 +133,13 @@ pnpm run build
 
 **对接后端**：九种后端默认端口均为 `8000`，将 `.env.development` 的 `VITE_APP_API_URL` 改为 `http://localhost:8000` 并启动对应后端即可（主推 Java 后端 [youlai-boot](https://gitee.com/youlaiorg/youlai-boot.git)，其余见各自仓库 README）。
 
+
+
+
+
+## 补充
+
+```
+pnpm add @iconify/vue @iconify-json/ri @iconify-json/ep
+```
+

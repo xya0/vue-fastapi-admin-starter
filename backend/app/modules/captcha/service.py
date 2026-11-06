@@ -80,7 +80,8 @@ class CaptchaService:
         logger.info(f"Captcha generated: id={captcha_id}")
         return CaptchaResult(captchaId=captcha_id, captchaBase64=f"data:image/png;base64,{img_base64}")
 
-    async def verify(self, captcha_id: str, code: str) -> bool:
+    @staticmethod
+    async def verify(captcha_id: str, code: str) -> bool:
         """校验验证码 — 一次性使用。"""
         redis_client = await get_redis()
         key = f"{REDIS_CAPTCHA_PREFIX}{captcha_id}"

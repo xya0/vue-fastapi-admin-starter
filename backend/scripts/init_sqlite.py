@@ -4,7 +4,7 @@ import sqlite3
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DB_PATH = next((ROOT / "data").iterdir(), None)  # DB_PATH = ROOT / "data" / "admin.db"
+DB_PATH = next((ROOT / "data").iterdir(), None)  # DB_PATH = ROOT / "data" / "app.db"
 SQL_PATH = next((ROOT / "sql" / "sqlite").iterdir(), None)  # SQL_PATH = ROOT / "sql" / "sqlite" / "admin.sql"
 
 # 确保文件确实存在

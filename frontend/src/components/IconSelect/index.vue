@@ -184,16 +184,28 @@ onMounted(() => {
 }
 
 .icon-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 8px;
+  padding: 16px;
+  margin: 0;
+  list-style: none;
+}
+
+.icon-grid:before {
+  content: none !important;
 }
 
 .icon-grid-item {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  min-width: 40px;
+  height: 40px;
+  box-sizing: border-box;
   padding: 8px;
-  margin: 4px;
+  margin: 0;
   cursor: pointer;
   border: 1px solid #dcdfe6;
   border-radius: 4px;
@@ -202,6 +214,6 @@ onMounted(() => {
 
 .icon-grid-item:hover {
   border-color: #4080ff;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 </style>

@@ -15,13 +15,55 @@
       </div>
     </section>
   </div>
+
+  <div class="page-container">
+    <el-card class="page-content" shadow="never">
+      <section v-for="group in appGroups" :key="group.category.key" class="app-section">
+        <header class="app-section__header">
+          <span class="app-section__name">{{ group.category.name }}</span>
+          <span class="app-section__count">{{ group.apps.length }}</span>
+          <span class="app-section__desc">{{ group.category.description }}</span>
+        </header>
+
+        <div class="app-grid">
+          <div
+            v-for="app in group.apps"
+            :key="app.name"
+            class="app-card"
+            :class="[`app-card--${app.theme}`, { 'is-disabled': !app.ssoReady && !app.url }]"
+            @click="handleAppClick(app)"
+          >
+            <div class="app-card__icon">
+              <app-icon :name="app.icon" size="22" />
+              <!-- <el-icon :size="22">
+                <component :is="app.icon" />
+              </el-icon> -->
+            </div>
+            <div class="app-card__body">
+              <div class="app-card__name">{{ app.name }}</div>
+              <div class="app-card__desc">{{ app.description }}</div>
+            </div>
+            <el-icon v-if="app.ssoReady || app.url" class="app-card__arrow">
+              <ArrowRight />
+            </el-icon>
+          </div>
+        </div>
+      </section>
+    </el-card>
+  </div>
 </template>
 
 <script setup>
+import { ArrowRight } from "@element-plus/icons-vue";
+import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
+import { appConfig } from "@/settings";
+
 defineOptions({ name: "Dashboard", inheritAttrs: false });
 
 import { useUserStore } from "@/stores/user";
 import { User } from "@element-plus/icons-vue";
+import App from "@/App.vue";
 
 const userStore = useUserStore();
 
@@ -40,6 +82,90 @@ const currentDateStr = computed(() => {
   const w = ["日", "一", "二", "三", "四", "五", "六"];
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 星期${w[d.getDay()]}`;
 });
+
+// ===========================================================
+/** 分类清单，数组顺序即页面分组顺序 */
+const categories = [
+  {
+    key: "agent",
+    name: "AI工具",
+    description: "智能助手、工作流与多智能体",
+  },
+  {
+    key: "smart",
+    name: "智能与多端",
+    description: "AI办公与多端应用",
+  },
+];
+
+/** 应用清单：接入统一认证的应用补上 url 并置 ssoReady 为 true */
+const apps = [
+  {
+    name: "Google AI搜索",
+    description: "利用Google 搜索中的AI 模式获取AI 生成的回答",
+    url: "https://www.google.com/ai",
+    icon: "ri:google-fill",
+    theme: "primary",
+    ssoReady: true,
+    category: "agent",
+  },
+  {
+    name: "百度文心",
+    description: "百度旗下全能AI 助手",
+    url: "https://wenxin.baidu.com/",
+    icon: "ri:baidu-fill",
+    theme: "success",
+    ssoReady: false,
+    category: "agent",
+  },
+  {
+    name: "DeepSeek",
+    description: "探索未至之境",
+    url: "https://www.deepseek.com/",
+    icon: "ri:deepseek-fill",
+    theme: "warning",
+    ssoReady: false,
+    category: "agent",
+  },
+
+  {
+    name: "WorkBuddy",
+    description: "全场景 AI 办公工作台",
+    url: "https://www.workbuddy.cn/",
+    icon: "ri:ai",
+    theme: "info",
+    ssoReady: false,
+    category: "smart",
+  },
+];
+
+const router = useRouter();
+
+const appGroups = categories
+  .map((category) => ({ category, apps: apps.filter((app) => app.category === category.key) }))
+  // 未启用统一认证时不展示账号分组
+  .filter(
+    (group) => group.apps.length > 0 && (appConfig.oidcEnabled || group.category.key !== "account")
+  );
+
+// 站内路径走路由跳转，外部地址新标签打开
+function handleAppClick(app) {
+  // 未接入统一认证且没有入口的应用只作展示
+  if (!app.ssoReady && !app.url) {
+    ElMessage.info(`${app.name} 尚未接入统一认证`);
+    return;
+  }
+  if (/^https?:\/\//.test(app.url)) {
+    window.open(app.url, "_blank", "noopener");
+    return;
+  }
+  // 统一认证授权地址需要整页跳转，由后端重定向到认证中心
+  if (app.url.startsWith("/oauth2/")) {
+    window.location.href = app.url;
+    return;
+  }
+  router.push(app.url);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -250,5 +376,186 @@ $pad: 10px;
   .dash-stats {
     grid-template-columns: 1fr;
   }
+}
+
+/* 分组按内容高度排列，不占用页面剩余高度 */
+.page-container {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 8px 12px 16px;
+}
+
+.page-content :deep(.el-card__body) {
+  grid-template-rows: none;
+  grid-auto-rows: min-content;
+  align-content: start;
+}
+
+.app-section + .app-section {
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid var(--el-border-color-extra-light);
+}
+
+.app-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.app-section__name {
+  position: relative;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--el-text-color-primary);
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 3px;
+    height: 14px;
+    content: "";
+    background: var(--el-color-primary);
+    border-radius: 2px;
+    transform: translateY(-50%);
+  }
+}
+
+.app-section__count {
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--el-text-color-secondary);
+  background: var(--el-fill-color-light);
+  border-radius: 8px;
+}
+
+.app-section__desc {
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.app-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  cursor: pointer;
+  background: var(--el-bg-color);
+  border: 1px solid var(--el-border-color-lighter);
+  border-radius: 10px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    border-color: var(--app-border);
+    box-shadow: 0 6px 16px rgb(0 0 0 / 6%);
+    transform: translateY(-2px);
+
+    .app-card__arrow {
+      color: var(--app-color);
+      transform: translateX(2px);
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    .app-card__icon {
+      opacity: 0.75;
+      filter: saturate(0.7);
+    }
+
+    .app-card__name {
+      color: var(--el-text-color-regular);
+    }
+
+    &:hover {
+      border-color: var(--el-border-color-lighter);
+      box-shadow: none;
+      transform: none;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: var(--app-color);
+    background: var(--app-bg);
+    border-radius: 10px;
+  }
+
+  &__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    color: var(--el-text-color-primary);
+  }
+
+  &__desc {
+    display: -webkit-box;
+    margin-top: 6px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--el-text-color-secondary);
+    -webkit-box-orient: vertical;
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    align-self: center;
+    font-size: 14px;
+    color: var(--el-text-color-placeholder);
+    transition:
+      color 0.2s,
+      transform 0.2s;
+  }
+}
+
+.app-card--primary {
+  --app-color: var(--el-color-primary);
+  --app-bg: var(--el-color-primary-light-9);
+  --app-border: var(--el-color-primary-light-5);
+}
+
+.app-card--success {
+  --app-color: var(--el-color-success);
+  --app-bg: var(--el-color-success-light-9);
+  --app-border: var(--el-color-success-light-5);
+}
+
+.app-card--warning {
+  --app-color: var(--el-color-warning);
+  --app-bg: var(--el-color-warning-light-9);
+  --app-border: var(--el-color-warning-light-5);
+}
+
+.app-card--info {
+  --app-color: var(--el-color-info);
+  --app-bg: var(--el-color-info-light-9);
+  --app-border: var(--el-color-info-light-5);
 }
 </style>
